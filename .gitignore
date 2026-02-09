@@ -1,0 +1,11 @@
+# ModelSim / Questa
+work/
+vsim.wlf
+transcript
+*.log
+
+# Editor
+.vscode/
+
+# OS
+.DS_Store
