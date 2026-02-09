@@ -21,7 +21,9 @@ A basic combinational circuit that adds two 1-bit inputs.
   - `Sum   = A ^ B`
   - `Carry = A & B`
 
-docs/images/Half_adder_test.png
+**Simulation**
+
+![Half Adder Simulation](docs/images/Half_adder_test.png)
 
 ### Full Adder
 
@@ -33,7 +35,9 @@ An extension of the Half Adder that includes a carry-in input.
   - `Sum   = A ^ B ^ Cin`
   - `Carry = (A & B) | (Cin & (A ^ B))`
 
-docs/images/Full_adder_test.png
+**Simulation**
+
+![Full Adder Simulation](docs/images/Full_adder_test.png)
 
 ## Bonus: Future Updates
 
