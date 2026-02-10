@@ -9,6 +9,20 @@ using **ModelSim** with an automated workflow.
 
 ---
 
+##  Project Structure
+The project follows an directory structure:
+
+```text
+.
+├── rtl/          # Synthesizable SystemVerilog source code
+├── tb/           # Testbench files
+├── sim/          # Simulation directory (Makefile & Scripts)
+├── doc/          # Documentation & Waveforms
+└── README.md
+```
+
+---
+
 ## Implemented Modules
 
 ### Half Adder
@@ -65,6 +79,21 @@ A combinational circuit that selects one of the 8 data input lines and forwards 
 **Simulation**
 
 ![Mux 8to1 Simulation](docs/images/mux8to1.png)
+
+### How to run:
+  prerequisites:
+    - ModelSim
+    - GNU Make
+
+  run:
+    - cd sim
+    - make wave-half_adder
+    - make wave-full_adder
+    - make wave-........
+
+  clean:
+    - make clean
+
 
 ## Bonus: Future Updates
 
