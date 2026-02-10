@@ -10,14 +10,14 @@ using **ModelSim** with an automated workflow.
 ---
 
 ##  Project Structure
-The project follows an directory structure:
+The project follows a structured directory layout:
 
 ```text
 .
 ├── rtl/          # Synthesizable SystemVerilog source code
 ├── tb/           # Testbench files
 ├── sim/          # Simulation directory (Makefile & Scripts)
-├── doc/          # Documentation & Waveforms
+├── docs/          # Documentation & Waveforms
 └── README.md
 ```
 
