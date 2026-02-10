@@ -80,6 +80,8 @@ A combinational circuit that selects one of the 8 data input lines and forwards 
 
 ![Mux 8to1 Simulation](docs/images/mux8to1.png)
 
+---
+
 ##  How to Run (Simulation)
 
 ### Prerequisites
