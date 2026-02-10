@@ -1,11 +1,13 @@
 # ModelSim / Questa
-work/
-vsim.wlf
-transcript
+**/work/
+**/vsim.wlf
+**/transcript
 *.log
 
-# Editor
+# Editor / IDE
 .vscode/
+*~
+*.swp
 
 # OS
 .DS_Store

@@ -1,4 +1,4 @@
-module Full_adder(
+module full_adder(
     input  wire A,
     input  wire B,
     input  wire Cin,

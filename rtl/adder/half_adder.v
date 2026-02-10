@@ -1,4 +1,4 @@
-module Half_adder(
+module half_adder(
     input wire A, B,
     output wire Sum, Carry
     );
