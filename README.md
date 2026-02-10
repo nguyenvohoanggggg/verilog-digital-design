@@ -80,19 +80,21 @@ A combinational circuit that selects one of the 8 data input lines and forwards 
 
 ![Mux 8to1 Simulation](docs/images/mux8to1.png)
 
-### How to run:
-  prerequisites:
-    - ModelSim
-    - GNU Make
+##  How to Run (Simulation)
 
-  run:
-    - cd sim
-    - make wave-half_adder
-    - make wave-full_adder
-    - make wave-........
+### Prerequisites
+- ModelSim (Intel FPGA Starter Edition or Questa)
+- GNU Make
 
-  clean:
-    - make clean
+### Run Simulation
+```bash
+cd sim
+make wave-half_adder
+make wave-full_adder
+make wave-ripple_carry_adder
+make wave-mux_8to1
+make wave-.....
+```
 
 
 ## Bonus: Future Updates
