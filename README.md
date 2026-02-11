@@ -13,7 +13,7 @@ using **ModelSim** with an automated workflow.
 The project follows a structured directory layout:
 
 ```text
-.
+
 ├── rtl/          # Synthesizable SystemVerilog source code
 ├── tb/           # Testbench files
 ├── sim/          # Simulation directory (Makefile & Scripts)
@@ -80,12 +80,46 @@ A combinational circuit that selects one of the 8 data input lines and forwards 
 
 ![Mux 8to1 Simulation](docs/images/mux8to1.png)
 
+### Demultiplexer
+
+A combinational circuit that routes a single input to one of multiple outputs
+based on select signals.
+
+#### Demux 1-to-8
+- Inputs: `Din`, `Sel[2:0]`
+- Outputs: `Dout[7:0]`
+- Logic:
+  - Only one output bit is asserted based on `Sel`
+
+**Simulation**
+
+![Demux 1to8 Simulation](docs/images/demux_1x8.png)
+
+#### Demux 1-to-8 with Enable
+- Inputs: `Din`, `En`, `Sel[2:0]`
+- Outputs: `Dout[7:0]`
+- Behavior:
+  - When `En = 0`, all outputs are forced to 0
+
+**Simulation**
+
+![Demux 1to8 En Simulation](docs/images/demux_1x8_en.png)
+
+#### Demux 1-to-16
+- Inputs: `Din`, `Sel[3:0]`
+- Outputs: `Dout[15:0]`
+
+**Simulation**
+
+![Demux 1to16 Simulation](docs/images/demux_1x16.png)
+
+
 ---
 
 ##  How to Run (Simulation)
 
 ### Prerequisites
-- ModelSim (Intel FPGA Starter Edition or Questa)
+- ModelSim (Intel FPGA Standard Edition or Questa)
 - GNU Make
 
 ### Run Simulation
