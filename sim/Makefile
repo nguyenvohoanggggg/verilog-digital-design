@@ -19,8 +19,18 @@ wave-half_adder:
 
 wave-ripple_carry_adder:
 	$(VSIM) -do scripts/ripple_carry_adder.do
+
 wave-mux_8to1:
 	$(VSIM) -do scripts/mux_8to1.do
+
+wave-demux_1to8:
+	$(VSIM) -do scripts/demux_1to8.do
+
+wave-demux_1to16:
+	$(VSIM) -do scripts/demux_1to16.do
+
+wave-demux_1to8_en:
+	$(VSIM) -do scripts/demux_1to8_en.do
 
 clean:
 	rm -rf work transcript vsim.wlf
