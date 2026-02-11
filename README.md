@@ -25,7 +25,7 @@ The project follows a structured directory layout:
 
 ## Implemented Modules
 
-### Half Adder
+### 1. Half Adder
 
 A basic combinational circuit that adds two 1-bit inputs.
 
@@ -39,7 +39,7 @@ A basic combinational circuit that adds two 1-bit inputs.
 
 ![Half Adder Simulation](docs/images/Half_adder_test.png)
 
-### Full Adder
+### 2. Full Adder
 
 An extension of the Half Adder that includes a carry-in input.
 
@@ -53,7 +53,7 @@ An extension of the Half Adder that includes a carry-in input.
 
 ![Full Adder Simulation](docs/images/Full_adder_test.png)
 
-### Ripple Carry Adder
+### 3. Ripple Carry Adder
 
 A 4-bit adder constructed by cascading four Full Adders in a chain, where the carry-out of each stage propagates to the next.
 
@@ -67,7 +67,7 @@ A 4-bit adder constructed by cascading four Full Adders in a chain, where the ca
 
 ![Ripple Carry Adder Simulation](docs/images/ripple_carry_adder.png)
 
-### Multiplexer 8-to-1
+### 4. Multiplexer 8-to-1
 
 A combinational circuit that selects one of the 8 data input lines and forwards it to the single output line based on the 3-bit selection values.
 
@@ -80,12 +80,12 @@ A combinational circuit that selects one of the 8 data input lines and forwards 
 
 ![Mux 8to1 Simulation](docs/images/mux8to1.png)
 
-### Demultiplexer
+### 5. Demultiplexer
 
 A combinational circuit that routes a single input to one of multiple outputs
 based on select signals.
 
-#### Demux 1-to-8
+#### - Demux 1-to-8
 - Inputs: `Din`, `Sel[2:0]`
 - Outputs: `Dout[7:0]`
 - Logic:
@@ -95,7 +95,7 @@ based on select signals.
 
 ![Demux 1to8 Simulation](docs/images/demux_1x8.png)
 
-#### Demux 1-to-8 with Enable
+#### - Demux 1-to-8 with Enable
 - Inputs: `Din`, `En`, `Sel[2:0]`
 - Outputs: `Dout[7:0]`
 - Behavior:
@@ -105,7 +105,7 @@ based on select signals.
 
 ![Demux 1to8 En Simulation](docs/images/demux_1x8_en.png)
 
-#### Demux 1-to-16
+#### - Demux 1-to-16
 - Inputs: `Din`, `Sel[3:0]`
 - Outputs: `Dout[15:0]`
 
