@@ -11,7 +11,7 @@ module jk_ff_tb;
     //  DUT
     jk_ff dut (
         .clk  (clk),
-        .rstn (rst),
+        .rst (rst),
         .j    (j),
         .k    (k),
         .q    (q)
@@ -21,38 +21,38 @@ module jk_ff_tb;
     always #5 clk = ~clk;  //  10ns period
 
     initial begin
-        // Initialize
+        // signals
         clk  = 0;
-        rstn = 0;
+        rst = 0;
         j    = 0;
         k    = 0;
 
         // Display waveform info in console
         $monitor("T=%0t | rstn=%b | j=%b k=%b | q=%b",
-                  $time, rstn, j, k, q);
+                  $time, rst, j, k, q);
 
         //  reset
         #12 rst = 1;
 
-        // JK = 00 → Hold
+        // JK = 00 : Hold
         #10 j = 0; k = 0;
 
-        // JK = 10 → Set
+        // JK = 10 : Set
         #10 j = 1; k = 0;
 
-        // JK = 00 → Hold
+        // JK = 00 : Hold
         #10 j = 0; k = 0;
 
-        // JK = 01 → Reset
+        // JK = 01 : Reset
         #10 j = 0; k = 1;
 
-        // JK = 11 → Toggle
+        // JK = 11 : Toggle
         #10 j = 1; k = 1;
         #10 j = 1; k = 1;
 
         //  reset again
-        #10 rstn = 0;
-        #10 rstn = 1;
+        #10 rst = 0;
+        #10 rst = 1;
 
         #20 $stop;
     end
