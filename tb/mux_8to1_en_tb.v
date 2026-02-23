@@ -43,3 +43,4 @@ module mux_8to1_en_tb;
 
         #20 $stop;
     end
+endmodule
