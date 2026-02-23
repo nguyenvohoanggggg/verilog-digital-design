@@ -3,7 +3,7 @@
 module tb_t_ff;
 
     reg  clk;
-    reg  rstn;
+    reg  rst;
     reg  t;
     wire q;
 
@@ -21,11 +21,11 @@ module tb_t_ff;
     initial begin
         // signals
         clk  = 0;
-        rstn = 0;
+        rst = 0;
         t    = 0;
 
         $monitor("T=%0t | rstn=%b | t=%b | q=%b",
-                  $time, rstn, t, q);
+                  $time, rst, t, q);
 
         //  reset
         #12 rst = 1;
