@@ -2,21 +2,21 @@
 
 module full_adder_4bit_tb;
 
-reg  [3:0] A_tb, B_tb;
-reg        Cin_tb;
-wire [3:0] Sum_tb;
-wire       Carry_tb;
+reg  [3:0] a_tb, b_tb;
+reg        cin_tb;
+wire [3:0] sum_tb;
+wire       carry_tb;
 
 integer i,j,k;
 integer errors = 0;
 reg [4:0] expected;
 
 full_adder_4bit dut (
-  .A(A_tb),
-  .B(B_tb),
-  .Cin(Cin_tb),
-  .Sum(Sum_tb),
-  .Carry(Carry_tb)
+  .a(a_tb),
+  .b(b_tb),
+  .carry_in(cin_tb),
+  .sum(sum_tb),
+  .carry_out(carry_tb)
 );
 
 initial begin
@@ -26,13 +26,13 @@ initial begin
   for (i=0;i<16;i=i+1)
     for (j=0;j<16;j=j+1)
       for (k=0;k<2;k=k+1) begin
-        A_tb = i;
-        B_tb = j;
-        Cin_tb = k;
+        a_tb = i;
+        b_tb = j;
+        cin_tb = k;
         #1;
         expected = i + j + k;
 
-        if ({Carry_tb,Sum_tb} !== expected) begin
+        if ({carry_tb,sum_tb} !== expected) begin
           errors = errors + 1;
           $display("ERROR: %d + %d + %d", i,j,k);
         end

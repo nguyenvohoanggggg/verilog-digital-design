@@ -9,35 +9,35 @@ module full_adder_4bit (
   wire c1, c2, c3;
 
   full_adder fa0 (
-    .a(a[0]),
-    .b(b[0]),
-    .carry_in(carry_in),
-    .sum(sum[0]),
-    .carry_out(c1)
+    .A(a[0]),
+    .B(b[0]),
+    .Cin(carry_in),
+    .Sum(sum[0]),
+    .Carry(c1)
   );
 
   full_adder fa1 (
-    .a(a[1]),
-    .b(b[1]),
-    .carry_in(c1),
-    .sum(sum[1]),
-    .carry_out(c2)
+    .A(a[1]),
+    .B(b[1]),
+    .Cin(c1),
+    .Sum(sum[1]),
+    .Carry(c2)
   );
 
   full_adder fa2 (
-    .a(a[2]),
-    .b(b[2]),
-    .carry_in(c2),
-    .sum(sum[2]),
-    .carry_out(c3)
+    .A(a[2]),
+    .B(b[2]),
+    .Cin(c2),
+    .Sum(sum[2]),
+    .Carry(c3)
   );
 
   full_adder fa3 (
-    .a(a[3]),
-    .b(b[3]),
-    .carry_in(c3),
-    .sum(sum[3]),
-    .carry_out(carry_out)
+    .A(a[3]),
+    .B(b[3]),
+    .Cin(c3),
+    .Sum(sum[3]),
+    .Carry(carry_out)
   );
 
 endmodule

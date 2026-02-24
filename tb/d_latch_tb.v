@@ -17,31 +17,31 @@ module d_latch_tb;
 
     initial begin
         // Initialize
-        D  = 0;
-        EN = 0;
+        d  = 0;
+        en = 0;
 
         $monitor("T=%0t | EN=%b | D=%b | Q=%b | Qbar=%b",
                   $time, en, d, Q, Qbar);
 
         // en = 0 : hold
-        #10 D = 1;
-        #10 D = 0;
+        #10 d = 1;
+        #10 d = 0;
 
         // en = 1 : Q = D
-        #10 EN = 1;
-        #5  D  = 1; 
-        #5  D  = 0;
-        #5  D  = 1;
+        #10 en = 1;
+        #5  d  = 1;
+        #5  d  = 0;
+        #5  d  = 1;
 
         // en = 0 : hold last value
-        #10 EN = 0;
-        #10 D  = 0;
-        #10 D  = 1;
+        #10 en = 0;
+        #10 d  = 0;
+        #10 d  = 1;
 
         // en = 1
-        #10 EN = 1;
-        #5  D  = 0;
-        #5  D  = 1;
+        #10 en = 1;
+        #5  d  = 0;
+        #5  d  = 1;
 
         #20 $stop;
     end
