@@ -10,7 +10,7 @@ module modn_counter #(
 always @(posedge clk or negedge rst) begin
     if (!rst)
         out <= '0;
-    else if (out == N-1) 
+    else if (out == N-1)
         out <= '0;
     else
         out <= out + 1'b1;
