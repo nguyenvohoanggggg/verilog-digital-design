@@ -56,5 +56,14 @@ wave-sr_latch:
 wave-sr_ff:
 	$(VSIM) -do scripts/sr_ff.do
 
+wave-mod_n_counter:
+	$(VSIM) -do scripts/mod_n_counter.do
+
+wave-johnson_counter:
+	$(VSIM) -do scripts/johnson_counter.do
+
+wave-ring_counter:
+	$(VSIM) -do scripts/ring_counter.do
+
 clean:
 	rm -rf work transcript vsim.wlf
