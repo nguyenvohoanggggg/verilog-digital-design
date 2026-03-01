@@ -29,6 +29,9 @@ wave-mux_16to1:
 wave-mux_8to1_en:
 	$(VSIM) -do scripts/mux_8to1_en.do
 
+wave-mux_nbit:
+	$(VSIM) -do scripts/mux_nbit.do
+
 wave-demux_1to8:
 	$(VSIM) -do scripts/demux_1to8.do
 
@@ -37,6 +40,9 @@ wave-demux_1to8_en:
 
 wave-demux_1to16:
 	$(VSIM) -do scripts/demux_1to16.do
+
+wave-demux_nbit:
+	$(VSIM) -do scripts/demux_nbit.do
 
 wave-d_ff:
 	$(VSIM) -do scripts/d_ff.do
@@ -62,8 +68,32 @@ wave-mod_n_counter:
 wave-johnson_counter:
 	$(VSIM) -do scripts/johnson_counter.do
 
-wave-ring_counter:
-	$(VSIM) -do scripts/ring_counter.do
+wave-pipo:
+	$(VSIM) -do scripts/pipo.do
+
+wave-piso:
+	$(VSIM) -do scripts/piso.do
+
+wave-sipo:
+	$(VSIM) -do scripts/sipo.do
+
+wave-siso:
+	$(VSIM) -do scripts/siso.do
+
+wave-bidirectional:
+	$(VSIM) -do scripts/bidirectional.do
+
+wave-comparator:
+	$(VSIM) -do scripts/comparator.do
+
+wave-comparator_nbit:
+	$(VSIM) -do scripts/comparator_nbit.do
+
+wave-decoder_2to4:
+	$(VSIM) -do scripts/dec_2to4.do
+
+wave-decoder_3to8:
+	$(VSIM) -do scripts/dec_3to8.do
 
 clean:
 	rm -rf work transcript vsim.wlf
