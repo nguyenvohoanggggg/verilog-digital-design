@@ -1,5 +1,5 @@
 module johnson_counter #(
-    parameter integer N     = 16,
+    parameter integer N     = 16
 )(
     input  wire             clk,
     input  wire             rst,
