@@ -2,7 +2,7 @@
 
 module johnson_counter_tb;
 
-    parameter N = 4;   
+    parameter N = 4;
 
     reg clk;
     reg rst;
@@ -29,10 +29,10 @@ module johnson_counter_tb;
         $monitor("Time=%0t | rst=%b | out=%b", $time, rst, out);
 
         rst = 0;
-        #12;          // giữ reset vài ns
+        #12;          // hold reset
         rst = 1;      // release reset
 
-        // chạy đủ 2N chu kỳ
+        // run 2N period
         #(2*N*10);
 
         $display("Test finished.");
