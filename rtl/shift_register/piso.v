@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------
+// File    : piso.v
+// Module  : piso
+// Brief   : Parameterized N-bit Parallel-In Serial-Out (PISO) shift register.
+//           load=1 latches parallel_in; shift_en=1 shifts out MSB first on
+//           serial_out. Resets asynchronously active-low.
+// Params  : N – register width (default 8)
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module piso #(
     parameter N = 8
 )(

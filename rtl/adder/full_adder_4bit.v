@@ -1,3 +1,11 @@
+// -----------------------------------------------------------------------------
+// File    : full_adder_4bit.v
+// Module  : full_adder_4bit
+// Brief   : 4-bit ripple-carry adder built from four full_adder instances.
+//           Adds operands a[3:0] and b[3:0] with carry_in; produces sum[3:0]
+//           and carry_out.
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module full_adder_4bit (
   input wire [3:0] a,
   input wire [3:0] b,

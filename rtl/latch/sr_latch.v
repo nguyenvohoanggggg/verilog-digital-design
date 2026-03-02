@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// File    : sr_latch.v
+// Module  : sr_latch
+// Brief   : SR latch (combinational, no clock). S=1,R=0 sets Q=1;
+//           S=0,R=1 clears Q=0; S=R=0 holds; S=R=1 produces 'x'.
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module sr_latch (
   input  wire S,
   input  wire R,

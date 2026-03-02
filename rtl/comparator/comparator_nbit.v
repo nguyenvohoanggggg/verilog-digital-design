@@ -1,3 +1,11 @@
+// -----------------------------------------------------------------------------
+// File    : comparator_nbit.v
+// Module  : comparator_nbit
+// Brief   : Parameterized N-bit magnitude comparator. Produces gt, eq, lt
+//           flags for two N-bit unsigned operands a and b.
+// Params  : N – operand width (default 4)
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module comparator_nbit #(
     parameter N = 4
 )(

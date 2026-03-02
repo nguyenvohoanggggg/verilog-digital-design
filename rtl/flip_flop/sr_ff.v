@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// File    : sr_ff.v
+// Module  : sr_ff
+// Brief   : SR flip-flop with asynchronous active-low reset. Clocked on the
+//           rising edge; forbidden state S=R=1 produces 'x' on output q.
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module sr_ff (
   input wire s,
   input wire r,
@@ -14,7 +21,7 @@ module sr_ff (
             2'b01: q <= 1'b0; // Reset
             2'b10: q <= 1'b1; // Set
             2'b11: q <= 1'bx; // Invalid state
-            default: q <= q; // Default case 
+            default: q <= q; // Default case
         endcase
     end
     end

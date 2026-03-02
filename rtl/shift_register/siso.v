@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------
+// File    : siso.v
+// Module  : siso
+// Brief   : Parameterized N-bit Serial-In Serial-Out (SISO) shift register.
+//           shift_en=1 shifts serial_in through the register each clock;
+//           serial_out reflects the MSB. load=1 preloads parallel_in.
+// Params  : N – register width (default 8)
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module siso #(
     parameter N = 8
 )(

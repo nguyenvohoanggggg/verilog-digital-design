@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------
+// File    : johnson_counter.v
+// Module  : johnson_counter
+// Brief   : Parameterized N-bit Johnson (twisted-ring) counter.
+//           On each clock, shifts left and feeds the inverted MSB into LSB.
+//           Produces 2N unique states; resets asynchronously active-low.
+// Params  : N – register width (default 16)
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module johnson_counter #(
     parameter integer N     = 16
 )(

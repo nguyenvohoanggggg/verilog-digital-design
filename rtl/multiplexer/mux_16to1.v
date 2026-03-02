@@ -1,7 +1,14 @@
+// -----------------------------------------------------------------------------
+// File    : mux_16to1.v
+// Module  : mux_16to1
+// Brief   : 16-to-1 multiplexer. Selects one bit from data_in[15:0] using
+//           4-bit sel and drives it to data_out via chained ternary assigns.
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module mux_16to1 (
-  input wire [15:0] data_in, 
-  input wire [3:0] sel, 
-  output wire data_out 
+  input wire [15:0] data_in,
+  input wire [3:0] sel,
+  output wire data_out
 );
 
   assign data_out = (sel == 4'b0000) ? data_in[0] :

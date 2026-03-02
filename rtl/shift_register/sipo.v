@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------
+// File    : sipo.v
+// Module  : sipo
+// Brief   : Parameterized N-bit Serial-In Parallel-Out (SIPO) shift register.
+//           shift_en=1 shifts serial_in into LSB each clock; load=1 preloads
+//           parallel_in. Resets asynchronously active-low.
+// Params  : N – register width (default 8)
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module sipo #(
     parameter N = 8
 )(

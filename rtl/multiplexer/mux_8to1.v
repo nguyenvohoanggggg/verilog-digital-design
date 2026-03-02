@@ -1,7 +1,14 @@
+// -----------------------------------------------------------------------------
+// File    : mux_8to1.v
+// Module  : mux_8to1
+// Brief   : 8-to-1 multiplexer. Selects one bit from data_in[7:0] using
+//           3-bit sel and drives it to data_out via chained ternary assigns.
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module mux_8to1 (
-  input wire [7:0] data_in, 
-  input wire [2:0] sel, 
-  output wire data_out 
+  input wire [7:0] data_in,
+  input wire [2:0] sel,
+  output wire data_out
 );
 
   assign data_out = (sel == 3'b000) ? data_in[0] :

@@ -1,3 +1,11 @@
+// -----------------------------------------------------------------------------
+// File    : jk_ff.v
+// Module  : jk_ff
+// Brief   : JK flip-flop with asynchronous active-low reset. Implements the
+//           four standard JK modes: hold (00), reset (01), set (10),
+//           toggle (11); clocked on the rising edge.
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module jk_ff (
     input  wire clk,
     input  wire rst,

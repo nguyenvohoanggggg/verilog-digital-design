@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------
+// File    : ring_counter.v
+// Module  : ring_counter
+// Brief   : Parameterized N-bit ring counter. On reset, loads a single '1'
+//           in bit 0; on each clock the hot bit rotates left circularly.
+//           Resets asynchronously active-low.
+// Params  : N – register width (default 16)
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module ring_counter #(
     parameter integer N     = 16
 )(

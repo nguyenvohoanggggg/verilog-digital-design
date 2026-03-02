@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------
+// File    : pipo.v
+// Module  : pipo
+// Brief   : Parameterized N-bit Parallel-In Parallel-Out (PIPO) register.
+//           Loads parallel_in into parallel_out on the rising edge when
+//           load=1; holds otherwise. Resets asynchronously active-low.
+// Params  : N – register width (default 8)
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module pipo #(
     parameter N = 8
 )(

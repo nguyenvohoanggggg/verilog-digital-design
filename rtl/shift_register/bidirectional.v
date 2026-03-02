@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------
+// File    : bidirectional.v
+// Module  : bidirectional_shift
+// Brief   : Parameterized N-bit bidirectional shift register with parallel
+//           load. dir=0 shifts left (serial_in_left → LSB); dir=1 shifts
+//           right (serial_in_right → MSB). Resets asynchronously active-low.
+// Params  : N – register width (default 8)
+// Rev     : 1.0  2026-03-02  Initial release
+// -----------------------------------------------------------------------------
 module bidirectional_shift #(
     parameter N = 8
 )(
