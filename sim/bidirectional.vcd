@@ -1,0 +1,253 @@
+$date
+	Tue Mar  3 00:08:42 2026
+$end
+$version
+	ModelSim Version 2020.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module bidirectional_tb $end
+$var parameter 32 ! N $end
+$var reg 1 " clk $end
+$var reg 1 # rst $end
+$var reg 1 $ load $end
+$var reg 1 % shift_en $end
+$var reg 1 & dir $end
+$var reg 1 ' serial_in_left $end
+$var reg 1 ( serial_in_right $end
+$var reg 8 ) parallel_in [7:0] $end
+$var wire 1 * data_out [7] $end
+$var wire 1 + data_out [6] $end
+$var wire 1 , data_out [5] $end
+$var wire 1 - data_out [4] $end
+$var wire 1 . data_out [3] $end
+$var wire 1 / data_out [2] $end
+$var wire 1 0 data_out [1] $end
+$var wire 1 1 data_out [0] $end
+
+$scope module dut $end
+$var parameter 32 2 N $end
+$var wire 1 3 clk $end
+$var wire 1 4 rst $end
+$var wire 1 5 load $end
+$var wire 1 6 shift_en $end
+$var wire 1 7 dir $end
+$var wire 1 8 serial_in_left $end
+$var wire 1 9 serial_in_right $end
+$var wire 1 : parallel_in [7] $end
+$var wire 1 ; parallel_in [6] $end
+$var wire 1 < parallel_in [5] $end
+$var wire 1 = parallel_in [4] $end
+$var wire 1 > parallel_in [3] $end
+$var wire 1 ? parallel_in [2] $end
+$var wire 1 @ parallel_in [1] $end
+$var wire 1 A parallel_in [0] $end
+$var reg 8 B data_out [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0"
+0#
+0$
+0%
+0&
+0'
+0(
+b0 )
+b0 B
+b1000 !
+b1000 2
+01
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0A
+0@
+0?
+0>
+0=
+0<
+0;
+0:
+09
+08
+07
+06
+05
+04
+03
+$end
+#5000
+1"
+13
+#10000
+0"
+03
+#15000
+1"
+13
+1#
+14
+#20000
+0"
+03
+#25000
+1"
+13
+b10100101 )
+1$
+1A
+1?
+1<
+1:
+15
+#30000
+0"
+03
+#35000
+1"
+13
+0$
+1%
+05
+16
+b10100101 B
+11
+1/
+1,
+1*
+#40000
+0"
+03
+#45000
+1"
+13
+b1001010 B
+01
+10
+0/
+1.
+0,
+1+
+0*
+#50000
+0"
+03
+#55000
+1"
+13
+b10010100 B
+00
+1/
+0.
+1-
+0+
+1*
+#60000
+0"
+03
+#65000
+1"
+13
+0%
+1$
+06
+15
+b101000 B
+0/
+1.
+0-
+1,
+0*
+#70000
+0"
+03
+#75000
+1"
+13
+0$
+1&
+1%
+05
+17
+16
+b10100101 B
+11
+1/
+0.
+1*
+#80000
+0"
+03
+#85000
+1"
+13
+b1010010 B
+01
+10
+0/
+1-
+0,
+1+
+0*
+#90000
+0"
+03
+#95000
+1"
+13
+b101001 B
+11
+00
+1.
+0-
+1,
+0+
+#100000
+0"
+03
+#105000
+1"
+13
+0%
+06
+b10100 B
+01
+1/
+0.
+1-
+0,
+#110000
+0"
+03
+#115000
+1"
+13
+0#
+04
+b0 B
+0/
+0-
+#118000
+1#
+14
+#120000
+0"
+03
+#125000
+1"
+13
+#130000
+0"
+03
+#135000
+1"
+13

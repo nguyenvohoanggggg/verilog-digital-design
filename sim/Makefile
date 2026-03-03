@@ -68,6 +68,9 @@ wave-mod_n_counter:
 wave-johnson_counter:
 	$(VSIM) -do scripts/johnson_counter.do
 
+wave-ring_counter:
+	$(VSIM) -do scripts/ring_counter.do
+
 wave-pipo:
 	$(VSIM) -do scripts/pipo.do
 
@@ -94,6 +97,9 @@ wave-decoder_2to4:
 
 wave-decoder_3to8:
 	$(VSIM) -do scripts/dec_3to8.do
+
+wave-priority_encoder_8to3:
+	$(VSIM) -do scripts/priority_encoder_8to3.do
 
 clean:
 	rm -rf work transcript vsim.wlf
