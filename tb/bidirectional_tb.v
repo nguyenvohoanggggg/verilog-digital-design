@@ -33,6 +33,23 @@ module bidirectional_tb;
     initial clk = 0;
     always #5 clk = ~clk;
 
+    // Task: wait n rising edges
+    task tick;
+        input integer n;
+        repeat (n) @(posedge clk);
+    endtask
+
+    // Task: parallel load for 1 cycle then deassert
+    task do_load;
+        input [N-1:0] data;
+        begin
+            parallel_in = data;
+            load = 1;
+            tick(1);
+            load = 0;
+        end
+    endtask
+
     // Stimulus
     initial begin
         $dumpfile("bidirectional.vcd");
@@ -41,52 +58,58 @@ module bidirectional_tb;
         // Initialise
         rst = 0; load = 0; shift_en = 0;
         dir = 0; serial_in_left = 0; serial_in_right = 0;
-        parallel_in = 8'b0;
+        parallel_in = {N{1'b0}};
 
-        // Reset
-        @(posedge clk); @(posedge clk);
+        // Reset: hold for 2 cycles then release
+        tick(2);
         rst = 1;
 
-        // Parallel load 0xA5
-        @(posedge clk);
-        parallel_in = 8'hA5; load = 1;
-        @(posedge clk); load = 0;
-        $display("After load       : data_out = %b (expected 10100101)", data_out);
+        // ----------------------------------------------------------------
+        // Parallel load
+        // ----------------------------------------------------------------
+        do_load(8'hA5);
+        $display("After load       : data_out = %b  (exp 10100101)", data_out);
 
-        // Shift left x3, serial_in_left = 0
+        // ----------------------------------------------------------------
+        // Shift left x4, serial_in_left = 0
+        // ----------------------------------------------------------------
         dir = 0; serial_in_left = 0; shift_en = 1;
-        @(posedge clk);
-        $display("Shift left x1    : data_out = %b (expected 01001010)", data_out);
-        @(posedge clk);
-        $display("Shift left x2    : data_out = %b (expected 10010100)", data_out);
-        @(posedge clk);
-        $display("Shift left x3    : data_out = %b (expected 00101000)", data_out);
+        repeat (4) begin
+            tick(1);
+            $display("Shift left       : data_out = %b", data_out);
+        end
         shift_en = 0;
 
-        // Parallel load 0xA5 again
-        parallel_in = 8'hA5; load = 1;
-        @(posedge clk); load = 0;
+        // ----------------------------------------------------------------
+        // Reload and shift right x4, serial_in_right = 1
+        // ----------------------------------------------------------------
+        do_load(8'hA5);
+        $display("After reload     : data_out = %b  (exp 10100101)", data_out);
 
-        // Shift right x3, serial_in_right = 0
-        dir = 1; serial_in_right = 0; shift_en = 1;
-        @(posedge clk);
-        $display("Shift right x1   : data_out = %b (expected 01010010)", data_out);
-        @(posedge clk);
-        $display("Shift right x2   : data_out = %b (expected 00101001)", data_out);
-        @(posedge clk);
-        $display("Shift right x3   : data_out = %b (expected 00010100)", data_out);
+        dir = 1; serial_in_right = 1; shift_en = 1;
+        repeat (4) begin
+            tick(1);
+            $display("Shift right      : data_out = %b", data_out);
+        end
         shift_en = 0;
 
-        // Hold: no load, no shift_en
-        @(posedge clk);
-        $display("Hold             : data_out = %b (unchanged)", data_out);
+        // ----------------------------------------------------------------
+        // Hold: shift_en = 0, data_out must stay unchanged
+        // ----------------------------------------------------------------
+        tick(2);
+        $display("Hold             : data_out = %b  (unchanged)", data_out);
 
-        // Async reset
-        rst = 0; #3;
-        $display("Async reset      : data_out = %b (expected 00000000)", data_out);
-        rst = 1;
+        // ----------------------------------------------------------------
+        // Async reset mid-cycle
+        // ----------------------------------------------------------------
+        shift_en = 1; dir = 0;
+        #3;
+        rst = 0;
+        #2;
+        $display("Async reset      : data_out = %b  (exp 00000000)", data_out);
+        rst = 1; shift_en = 0;
 
-        #20;
+        tick(2);
         $display("Simulation done.");
         $finish;
     end
