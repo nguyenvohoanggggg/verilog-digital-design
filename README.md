@@ -231,9 +231,15 @@ More waveform images are available in the `docs/` directory.
 
 ### Half Adder
 
+![Half Adder Waveform](docs/images/Half_adder_test.png)
+
 ### Full Adder
 
-### Multiplexer
+![Full Adder Waveform](docs/images/Full_adder_test.png)
+
+### D Flip Flop
+
+![D Flip Flop Waveform](docs/images/d_ff.png)
 
 ---
 
@@ -251,7 +257,7 @@ cd sim
 
 make wave-half_adder
 make wave-full_adder
-make wave-ripple_carry_adder
+make wave-d_ff
 make wave-mux_8to1
 ```
 
@@ -270,14 +276,7 @@ Waveforms can be viewed using **ModelSim** or exported as `.vcd`.
 
 # Future Work
 
-Additional RTL modules planned for future updates:
-
-* FIFO
-* Arbiter
-* Barrel shifter
-* Clock divider
-* CDC synchronizer
-* Simple ALU
+Additional RTL modules planned for future updates
 
 ---
 
