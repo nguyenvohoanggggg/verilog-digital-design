@@ -1,7 +1,7 @@
 vlib work
 
 vlog ../rtl/shift_register/pipo.v
-vlog ../tb/pipo)tb.v
+vlog ../tb/pipo_tb.v
 
 vsim work.pipo_tb
 
