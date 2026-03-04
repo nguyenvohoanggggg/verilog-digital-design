@@ -4,6 +4,9 @@
 **/transcript
 *.log
 
+# Simulation waveform
+*.vcd
+
 # Editor / IDE
 .vscode/
 *~
