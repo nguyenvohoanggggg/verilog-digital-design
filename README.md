@@ -1,140 +1,287 @@
-# Verilog Basic Designs
-> **Simulation Tool**:  
-> [Download ModelSim FPGA Standard Edition (v20.1.1)](https://www.altera.com/downloads/simulation-tools/modelsim-fpgas-standard-edition-software-version-20-1-1)
+# Verilog Basic RTL Designs
 
+A collection of **fundamental digital logic modules implemented in Verilog/SystemVerilog**, created for practicing **RTL design, simulation, and verification**.
 
-This repository contains my practice projects for **Verilog HDL and FPGA design**.
-The focus is on implementing basic digital logic modules and verifying them
-using **ModelSim** with an automated workflow.
+The repository focuses on implementing core digital building blocks and validating their functionality using **ModelSim simulation**.
 
 ---
 
-##  Project Structure
-The project follows a structured directory layout:
+## Simulation Tool
 
-```text
+Simulation is performed using **ModelSim FPGA Standard Edition**.
 
-├── rtl/          # Synthesizable SystemVerilog source code
-├── tb/           # Testbench files
-├── sim/          # Simulation directory (Makefile & Scripts)
-├── docs/          # Documentation & Waveforms
-└── README.md
+> [Download ModelSim FPGA Standard Edition (v20.1.1)](https://www.altera.com/downloads/simulation-tools/modelsim-fpgas-standard-edition-software-version-20-1-1)
+
+
+Compatible tools:
+
+* ModelSim
+* QuestaSim
+* GTKWave (for `.vcd` waveform viewing)
+
+---
+
+# Project Structure
+
+The repository follows a structured layout separating **RTL design**, **testbench**, and **simulation flow**.
+
+```
+verilog-basic
+│
+├ rtl/           # Synthesizable RTL modules
+├ tb/            # Testbench files
+├ sim/           # Simulation scripts / Makefile
+├ docs/          # Documentation and waveform images
+│   └ images/
+│
+└ README.md
 ```
 
 ---
 
-## Implemented Modules
+# Module Summary
 
-### 1. Half Adder
-
-A basic combinational circuit that adds two 1-bit inputs.
-
-- Inputs: `A`, `B`
-- Outputs: `Sum`, `Carry`
-- Logic:
-  - `Sum   = A ^ B`
-  - `Carry = A & B`
-
-**Simulation**
-
-![Half Adder Simulation](docs/images/Half_adder_test.png)
-
-### 2. Full Adder
-
-An extension of the Half Adder that includes a carry-in input.
-
-- Inputs: `A`, `B`, `Cin`
-- Outputs: `Sum`, `Carry`
-- Logic:
-  - `Sum   = A ^ B ^ Cin`
-  - `Carry = (A & B) | (Cin & (A ^ B))`
-
-**Simulation**
-
-![Full Adder Simulation](docs/images/Full_adder_test.png)
-
-### 3. Ripple Carry Adder
-
-A 4-bit adder constructed by cascading four Full Adders in a chain, where the carry-out of each stage propagates to the next.
-
-- Inputs: `A[3:0]`, `B[3:0]`, `Cin`
-- Outputs: `Sum[3:0]`, `Cout`
-- Logic:
-  - `Sum[i] = A[i] ^ B[i] ^ C[i]`
-  - `C[i+1] = (A[i] & B[i]) | (C[i] & (A[i] ^ B[i]))`
-
-**Simulation**
-
-![Ripple Carry Adder Simulation](docs/images/ripple_carry_adder.png)
-
-### 4. Multiplexer 8-to-1
-
-A combinational circuit that selects one of the 8 data input lines and forwards it to the single output line based on the 3-bit selection values.
-
-- Inputs: `Data_In[7:0]`, `Sel[2:0]`
-- Outputs: `Y`
-- Logic:
-  - `Y = Data_In[Sel]`
-
-**Simulation**
-
-![Mux 8to1 Simulation](docs/images/mux8to1.png)
-
-### 5. Demultiplexer
-
-A combinational circuit that routes a single input to one of multiple outputs
-based on select signals.
-
-#### - Demux 1-to-8
-- Inputs: `Din`, `Sel[2:0]`
-- Outputs: `Dout[7:0]`
-- Logic:
-  - Only one output bit is asserted based on `Sel`
-
-**Simulation**
-
-![Demux 1to8 Simulation](docs/images/demux_1x8.png)
-
-#### - Demux 1-to-8 with Enable
-- Inputs: `Din`, `En`, `Sel[2:0]`
-- Outputs: `Dout[7:0]`
-- Behavior:
-  - When `En = 0`, all outputs are forced to 0
-
-**Simulation**
-
-![Demux 1to8 En Simulation](docs/images/demux_1x8_en.png)
-
-#### - Demux 1-to-16
-- Inputs: `Din`, `Sel[3:0]`
-- Outputs: `Dout[15:0]`
-
-**Simulation**
-
-![Demux 1to16 Simulation](docs/images/demux_1x16.png)
-
+| Module           | Category      | Description                     |
+| ---------------- | ------------- | ------------------------------- |
+| half_adder       | Combinational | 1-bit binary addition           |
+| full_adder       | Combinational | Full adder with carry           |
+| comparator       | Combinational | Magnitude comparator            |
+| mux              | Combinational | Multiplexer circuits            |
+| demux            | Combinational | Demultiplexer circuits          |
+| priority_encoder | Combinational | Priority-based encoding         |
+| decoder          | Combinational | Binary decoder                  |
+| d_latch          | Sequential    | Level-sensitive storage element |
+| sr_latch         | Sequential    | Basic memory latch              |
+| d_ff             | Sequential    | Edge-triggered flip-flop        |
+| jk_ff            | Sequential    | JK flip-flop                    |
+| t_ff             | Sequential    | Toggle flip-flop                |
+| shift_registers  | Sequential    | Serial/parallel shift registers |
+| ring_counter     | Counter       | One-hot circular counter        |
+| johnson_counter  | Counter       | Twisted ring counter            |
+| mod_n_counter    | Counter       | Parameterized counter           |
 
 ---
 
-##  How to Run (Simulation)
+# Implemented Modules
 
-### Prerequisites
-- ModelSim (Intel FPGA Standard Edition or Questa)
-- GNU Make
+## Combinational Circuits
 
-### Run Simulation
-```bash
+### Half Adder
+
+A basic combinational circuit that performs the addition of two 1-bit inputs.
+
+* Inputs: `A`, `B`
+* Outputs: `Sum`, `Carry`
+
+Logic
+
+```
+Sum   = A ^ B
+Carry = A & B
+```
+
+---
+
+### Full Adder
+
+A combinational circuit that adds two bits and a carry input.
+
+* Inputs: `A`, `B`, `Cin`
+* Outputs: `Sum`, `Cout`
+
+Used as the building block for multi-bit adders.
+
+---
+
+### Comparator
+
+Compares two input values and determines their relationship.
+
+Outputs indicate:
+
+* greater than
+* equal
+* less than
+
+Both **1-bit** and **parameterized N-bit versions** are implemented.
+
+---
+
+### Multiplexers
+
+Implemented designs:
+
+* **8-to-1 multiplexer**
+* **16-to-1 multiplexer**
+* **N-bit parameterized multiplexer**
+* **8-to-1 multiplexer with enable**
+
+Multiplexers select one of several inputs and route it to a single output based on a select signal.
+
+---
+
+### Demultiplexers
+
+Implemented designs:
+
+* **1-to-8 demultiplexer**
+* **1-to-8 demultiplexer with enable**
+* **1-to-16 demultiplexer**
+* **parameterized N-bit demultiplexer**
+
+A demultiplexer routes one input signal to one of many outputs.
+
+---
+
+### Priority Encoder (8-to-3)
+
+Encodes the highest-priority active input into a binary output value.
+
+Often used in **interrupt controllers and arbitration logic**.
+
+---
+
+### Decoders
+
+Implemented designs:
+
+* **2-to-4 decoder**
+* **3-to-8 decoder**
+
+A decoder converts binary input signals into **one-hot output lines**.
+
+---
+
+# Sequential Circuits
+
+### D Latch
+
+A level-sensitive storage element where the output follows the input when enable is active.
+
+---
+
+### SR Latch
+
+A simple memory element built using **Set** and **Reset** inputs.
+
+---
+
+### D Flip-Flop
+
+A clocked storage element that captures input data on the **rising edge of the clock**.
+
+---
+
+### JK Flip-Flop
+
+A flip-flop that improves the SR latch by removing the invalid state.
+
+When both inputs are high, the output toggles.
+
+---
+
+### T Flip-Flop
+
+A toggle flip-flop where the output toggles on each clock cycle when the input is active.
+
+---
+
+# Shift Registers
+
+Implemented designs:
+
+* **SISO** — Serial In Serial Out
+* **SIPO** — Serial In Parallel Out
+* **PISO** — Parallel In Serial Out
+* **PIPO** — Parallel In Parallel Out
+* **Bidirectional Shift Register**
+
+Shift registers are used for **data storage, serialization, and communication interfaces**.
+
+---
+
+# Counters
+
+### Ring Counter
+
+A circular shift register where a single '1' rotates through the register stages.
+
+---
+
+### Johnson Counter
+
+A modified ring counter where the inverted output feeds back to the input.
+
+Produces **twice the number of states** compared to a ring counter.
+
+---
+
+### Mod-N Counter
+
+A counter that cycles through **N states** before resetting.
+
+Commonly used for **clock division and timing generation**.
+
+---
+
+# Example Simulation Waveforms
+
+Example simulation waveforms are shown below.
+More waveform images are available in the `docs/` directory.
+
+### Half Adder
+
+### Full Adder
+
+### Multiplexer
+
+---
+
+# Running Simulation
+
+Prerequisites:
+
+* ModelSim
+* GNU Make
+
+Run simulation:
+
+```
 cd sim
+
 make wave-half_adder
 make wave-full_adder
 make wave-ripple_carry_adder
 make wave-mux_8to1
-make wave-.....
 ```
 
+Waveforms can be viewed using **ModelSim** or exported as `.vcd`.
 
-## Bonus: Future Updates
+---
 
-Additional Verilog modules and simulation examples will be added in future updates.
+# Tools
 
+* Verilog / SystemVerilog
+* ModelSim
+* GTKWave
+* GNU Make
 
+---
+
+# Future Work
+
+Additional RTL modules planned for future updates:
+
+* FIFO
+* Arbiter
+* Barrel shifter
+* Clock divider
+* CDC synchronizer
+* Simple ALU
+
+---
+
+# Author
+
+GitHub
+https://github.com/vohoangnguyennnnn
