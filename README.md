@@ -12,12 +12,11 @@ Simulation is performed using **ModelSim FPGA Standard Edition**.
 
 > [Download ModelSim FPGA Standard Edition (v20.1.1)](https://www.altera.com/downloads/simulation-tools/modelsim-fpgas-standard-edition-software-version-20-1-1)
 
-
 Compatible tools:
 
-* ModelSim
-* QuestaSim
-* GTKWave (for `.vcd` waveform viewing)
+- ModelSim
+- QuestaSim
+- GTKWave (for `.vcd` waveform viewing)
 
 ---
 
@@ -70,8 +69,8 @@ verilog-basic
 
 A basic combinational circuit that performs the addition of two 1-bit inputs.
 
-* Inputs: `A`, `B`
-* Outputs: `Sum`, `Carry`
+- Inputs: `A`, `B`
+- Outputs: `Sum`, `Carry`
 
 Logic
 
@@ -86,8 +85,8 @@ Carry = A & B
 
 A combinational circuit that adds two bits and a carry input.
 
-* Inputs: `A`, `B`, `Cin`
-* Outputs: `Sum`, `Cout`
+- Inputs: `A`, `B`, `Cin`
+- Outputs: `Sum`, `Cout`
 
 Used as the building block for multi-bit adders.
 
@@ -99,9 +98,9 @@ Compares two input values and determines their relationship.
 
 Outputs indicate:
 
-* greater than
-* equal
-* less than
+- greater than
+- equal
+- less than
 
 Both **1-bit** and **parameterized N-bit versions** are implemented.
 
@@ -111,10 +110,10 @@ Both **1-bit** and **parameterized N-bit versions** are implemented.
 
 Implemented designs:
 
-* **8-to-1 multiplexer**
-* **16-to-1 multiplexer**
-* **N-bit parameterized multiplexer**
-* **8-to-1 multiplexer with enable**
+- **8-to-1 multiplexer**
+- **16-to-1 multiplexer**
+- **N-bit parameterized multiplexer**
+- **8-to-1 multiplexer with enable**
 
 Multiplexers select one of several inputs and route it to a single output based on a select signal.
 
@@ -124,10 +123,10 @@ Multiplexers select one of several inputs and route it to a single output based 
 
 Implemented designs:
 
-* **1-to-8 demultiplexer**
-* **1-to-8 demultiplexer with enable**
-* **1-to-16 demultiplexer**
-* **parameterized N-bit demultiplexer**
+- **1-to-8 demultiplexer**
+- **1-to-8 demultiplexer with enable**
+- **1-to-16 demultiplexer**
+- **parameterized N-bit demultiplexer**
 
 A demultiplexer routes one input signal to one of many outputs.
 
@@ -145,8 +144,8 @@ Often used in **interrupt controllers and arbitration logic**.
 
 Implemented designs:
 
-* **2-to-4 decoder**
-* **3-to-8 decoder**
+- **2-to-4 decoder**
+- **3-to-8 decoder**
 
 A decoder converts binary input signals into **one-hot output lines**.
 
@@ -190,11 +189,11 @@ A toggle flip-flop where the output toggles on each clock cycle when the input i
 
 Implemented designs:
 
-* **SISO** — Serial In Serial Out
-* **SIPO** — Serial In Parallel Out
-* **PISO** — Parallel In Serial Out
-* **PIPO** — Parallel In Parallel Out
-* **Bidirectional Shift Register**
+- **SISO** — Serial In Serial Out
+- **SIPO** — Serial In Parallel Out
+- **PISO** — Parallel In Serial Out
+- **PIPO** — Parallel In Parallel Out
+- **Bidirectional Shift Register**
 
 Shift registers are used for **data storage, serialization, and communication interfaces**.
 
@@ -247,8 +246,8 @@ More waveform images are available in the `docs/` directory.
 
 Prerequisites:
 
-* ModelSim
-* GNU Make
+- ModelSim
+- GNU Make
 
 Run simulation:
 
@@ -258,7 +257,7 @@ cd sim
 make wave-half_adder
 make wave-full_adder
 make wave-d_ff
-make wave-mux_8to1
+make wave-mux_16to1
 ```
 
 Waveforms can be viewed using **ModelSim** or exported as `.vcd`.
@@ -267,10 +266,10 @@ Waveforms can be viewed using **ModelSim** or exported as `.vcd`.
 
 # Tools
 
-* Verilog / SystemVerilog
-* ModelSim
-* GTKWave
-* GNU Make
+- Verilog / SystemVerilog
+- ModelSim
+- GTKWave
+- GNU Make
 
 ---
 
